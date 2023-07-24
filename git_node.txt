@@ -1,0 +1,3 @@
+
+- Sau khi push ma quen pull ve
+	git pull --rebase origin Dev :  các thay đổi cục bộ của bạn sẽ được áp dụng lại trên các thay đổi từ xa nhanh Dev

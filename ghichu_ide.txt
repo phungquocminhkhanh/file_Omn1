@@ -1,0 +1,39 @@
+-khi thêm feild, nếu có update data đó ở giao diện thì phải khai báo feild vào model tương ứng
+-Khi thêm field + có sync lên sf, nếu là date thì khai báo bên dưới  $dates = [..]
+                + Chỉ đọc chứ ko sync lên thì bỏ vào readonly
+host salesforce dev :
+ 	https://wass--devl.sandbox.lightning.force.com/
+	geek@indochinagroup.edu.vn.devl
+	Omn1solution3
+
+host salesforce QA
+	https://wass--qa.sandbox.lightning.force.com/lightning/page/home
+	geek@indochinagroup.edu.vn.qa
+	Omn1solution22
+	
+teacher DEV:          https://dev-ied-teacher-portal-134f549f4b46.herokuapp.com/login
+teacher QA:           https://qa-ied-teacher-portal-081556208b27.herokuapp.com/
+	pass login teacher  hntiennhi1705@gmail.com  123456
+	pass login teacher  hntiennhi1705@gmail.com/123456
+
+
+Parent DEV  https://dev-ied-pportal.omnisolutions.vn
+Parent QA   https://stg-ied-pportal.omnisolutions.vn 
+	0377398170
+	123456789
+
+dashbboard Controller    controler/dashboard
+	sadmin@admin.com
+	omn1solution
+
+lenh tao migtation
+	php artisan make:migration create_add_column_active_fee_item_table --path=database/migrations/salesforce_update
+lệnh refest
+	php artisan migrate:refresh --path=database/migrations/salesforce/2023_05_09_061416_create_menu__c_table.php
+-khi add colum, muon syn data tu saleforse ve thi chay api
+   sf-sync -> object ->object
+
+nhớ host dev là https
+
+
+https://wass--devl.sandbox.my.salesforce.com/visualforce/session?url=https%3A%2F%2Fwass--devl.sandbox.lightning.force.com%2Fone%2Fone.app#eyJjb21wb25lbnREZWYiOiJvbmU6YWxvaGFQYWdlIiwiYXR0cmlidXRlcyI6eyJhZGRyZXNzIjoiL191aS9wbGF0Zm9ybS9zY2hlbWEvdWkvc2NoZW1hYnVpbGRlci9TY2hlbWFCdWlsZGVyVWkifSwic3RhdGUiOnt9fQ%3D%3D
