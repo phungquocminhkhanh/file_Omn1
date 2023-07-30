@@ -1,4 +1,4 @@
--khi thêm feild, nếu có update data đó ở giao diện thì phải khai báo feild vào model tương ứng
+	-khi thêm feild, nếu có update data đó ở giao diện thì phải khai báo feild vào model tương ứng
 -Khi thêm field + có sync lên sf, nếu là date thì khai báo bên dưới  $dates = [..]
                 + Chỉ đọc chứ ko sync lên thì bỏ vào readonly
 host salesforce dev :
@@ -13,8 +13,8 @@ host salesforce QA
 	
 teacher DEV:          https://dev-ied-teacher-portal-134f549f4b46.herokuapp.com/login
 teacher QA:           https://qa-ied-teacher-portal-081556208b27.herokuapp.com/
-	pass login teacher  hntiennhi1705@gmail.com  123456
-	pass login teacher  hntiennhi1705@gmail.com/123456
+	pass login teacher  hntiennhi1705@gmail.com  	     
+	pass login teacher  hntiennhi1705@gmail.com/ 123456
 
 
 Parent DEV  https://dev-ied-pportal.omnisolutions.vn

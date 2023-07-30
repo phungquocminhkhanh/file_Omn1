@@ -1,0 +1,35 @@
+Domain	ymhrev.omnisolutions.vn	
+		
+SSH	IP	222.255.238.105
+	Port	1105
+	User	ymhdev
+	Password	pHfC4wXeyi
+		
+SFTP	IP	222.255.238.105
+	Port	1105
+	User	ymhdev_ymhrev
+	Password	lIMbI9EwJ3
+		
+Database	Host	localhost
+	Database 	ymhdev_ymhrevdb
+	User	ymhdev_ymhrevu
+	Password	DJQ4VlBAVK
+
+Database: admin_ymh
+
+Username: admin_ymhu
+
+Password: @Aa123456@
+
+FTP:
+
+IP: ymh.thuthuat247.com
+
+username: admin_ymh
+
+Password: @Aa123456@
+
+Link website https://ymh.thuthuat247.com
+
+Login info: admin / Password: 4WX3oiT*8)fe6KomV9
+Nhớ khi import database mới thì config lại domain trong tabke : wp_option

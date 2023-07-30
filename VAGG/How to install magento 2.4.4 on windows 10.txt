@@ -1,0 +1,318 @@
+Donload XAMPP
+https://www.apachefriends.org/download.html
+--------------------------------------------------------------------------------------------------
+Download Compopser
+https://getcomposer.org/download/
+--------------------------------------------------------------------------------------------------
+
+INstall Elasticsearch
+
+https://www.elastic.co/downloads/past-releases#elasticsearch
+https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.16.3-windows-x86_64.zip
+--------------------------------------------------------------------------------------------------
+
+Enable PHP extensions & Configure php.ini
+[PHP]
+;extension=gd
+;extension=intl
+;extension=soap
+;extension=xsl
+;extension=sockets
+;extension=sodium
+Remove ; from the above lines of php.ini file. Save the file.
+
+max_execution_time=18000
+max_input_time=1800
+memory_limit=4G
+--------------------------------------------------------------------------------------------------
+
+Server configuration
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/magento2/pub"
+    ServerName rocking.magento.com
+</VirtualHost>
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+--------------------------------------------------------------------------------------------------
+
+then open C:\Windows\System32\drivers\etc\hosts file in notepad and add the below line at the bottom of the file.
+127.0.0.1  rocking.magento.com
+--------------------------------------------------------------------------------------------------
+
+php bin/magento setup:install --base-url="http://rocking.magento.com/" --db-host="localhost" --db-name="db_magento2" --db-user="root" --db-password="" --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="Admin@123456" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host="localhost" --elasticsearch-port=9200
+
+php bin/magento setup:install --base-url="https://localhost/magento2" --db-host="localhost" --db-name="magento245" --db-user="root" --db-password="" --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="Admin@123456" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host="localhost" --elasticsearch-port=9200
+
+php bin/magento setup:install --base-url="http://localhost/vagg" --db-host="localhost" --db-name="dbvagg" --db-user="root" --db-password="" --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="Admin@123456" --language="en_US" --currency="USD" --timezone="Asia/Ho_Chi_Minh" --use-rewrites="1" --backend-frontname="mag_admin" --search-engine=elasticsearch7 --elasticsearch-host="localhost" --elasticsearch-port=9200
+
+bin/magento setup:install --base-url=http://localhost/magento2c  --db-host=localhost --db-name=magento245 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin 
+--admin-email=admin@admin.com 
+--admin-user=admin 
+--admin-password=admin@123123 
+--language=en_US 
+--currency=USD 
+--timezone=America/Chicago 
+--use-rewrites=1 
+--search-engine=elasticsearch7 
+--elasticsearch-host=es-host.example.com 
+--elasticsearch-port=9200 
+--elasticsearch-index-prefix=magento2 
+--elasticsearch-timeout=15
+
+--------------------------------------------------------------------------------------------------
+
+
+Find validateURLScheme function in vendor\magento\framework\Image\Adapter\Gd2.php file. at line 92. Replace function with this:
+
+private function validateURLScheme(string $filename) : bool
+{
+          $allowed_schemes = ['ftp', 'ftps', 'http', 'https'];
+          $url = parse_url($filename);
+          if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
+              return false;
+          }
+
+          return true;   
+}
+
+--------------------------------------------------------------------------------------------------
+
+Go to: C:\xampp\htdocs\magento2.4\vendor\magento\framework\View\Element\Template\File - > Edit Validator.php using a text editor and find this line:
+
+	
+
+=>$realPath = str_replace('\\', '/', $this->fileDriver->getRealPath($path));
+
+ 
+--------------------------------------------------------------------------------------------------
+
+
+Then,
+
+Open up app/etc/di.xml in the editor,
+
+fint this line “Magento\Framework\App\View\Asset\MaterializationStrategy\Symlink”
+replace “Magento\Framework\App\View\Asset\MaterializationStrategy\Copy”
+
+Solution for Failed to Open Stream Error While Compiling PluginListGenerator.php in Magento 2.4.1 Open PluginListGenerator.php file located at vendor/magento/framework/Interception.
+
+Replace the line
+
+$cacheId = implode('|', $this->scopePriorityScheme) . "|" . $this->cacheId;
+
+with below:
+
+$cacheId = implode('-', $this->scopePriorityScheme) . "-" . $this->cacheId;
+
+--------------------------------------------------------------------------------------------------
+EJY94LdpPP-2CBtb7D8KvaYOfzmpT63xDyH1iGKgS76YzceJ1YKkGcymer_gHXw7_rdhhvBbxBBIo1cX
+
+php bin/magento indexer:reindex
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy -f
+php bin/magento cache:flush
+php bin/magento module:disable Magento_TwoFactorAuth
+
+
+php bin/magento sampledata:deploy
+
+Here is the simplest solution if showing version name in css path
+
+like : pub/static/version323334/
+
+then run this query in mysql
+
+INSERT INTO core_config_data (path, value) VALUES ('dev/static/sign', 0)
+ON DUPLICATE KEY UPDATE value = 0;
+
+--------------------------------------------------------------------------------------------------Thanks for watching------------------------------------------
+
+"repo.magento.com": {
+            "username": "9fa0a1d645baa7735a6549ae2716f078",
+            "password": "f2df17c9d0023879f385c8b23ff2464d"
+        }
+
+        https://experienceleague.adobe.com/docs/commerce-operations/installation-guide/next-steps/sample-data/overview.html
+
+Install sample data modules:
+
+Using composer:
+
+Add dependencies to the composer.json:
+
+composer require magento/module-bundle-sample-data magento/module-widget-sample-data magento/module-theme-sample-data magento/module-catalog-sample-data magento/module-customer-sample-data magento/module-cms-sample-data  magento/module-catalog-rule-sample-data magento/module-sales-rule-sample-data magento/module-review-sample-data magento/module-tax-sample-data magento/module-sales-sample-data magento/module-grouped-product-sample-data magento/module-downloadable-sample-data magento/module-msrp-sample-data magento/module-configurable-sample-data magento/module-product-links-sample-data magento/module-wishlist-sample-data magento/module-swatches-sample-data magento/sample-data-media magento/module-offline-shipping-sample-data --no-update
+Run:
+
+composer update
+Using magento:
+
+Deploy sample data:
+
+bin/magento sampledata:deploy
+Enable sample data modules (it's important!):
+
+bin/magento module:enable Magento_CustomerSampleData Magento_MsrpSampleData Magento_CatalogSampleData Magento_DownloadableSampleData Magento_OfflineShippingSampleData Magento_BundleSampleData Magento_ConfigurableSampleData Magento_ThemeSampleData Magento_ProductLinksSampleData Magento_ReviewSampleData Magento_CatalogRuleSampleData Magento_SwatchesSampleData Magento_GroupedProductSampleData Magento_TaxSampleData Magento_CmsSampleData Magento_SalesRuleSampleData Magento_SalesSampleData Magento_WidgetSampleData Magento_WishlistSampleData
+Remove old files:
+
+rm -rf var/cache/* var/page_cache/* var/generation/*
+Upgrade magento files:
+
+bin/magento setup:upgrade
+Recompile files:
+
+Do reindex:
+
+bin/magento indexer:reindex
+Deploy static content:
+
+bin/magento setup:static-content:deploy
+
+
+download sample data:
+
+php bin/magento sampledata:deploy
+Then install sample data:
+
+php bin/magento setup:upgrade
+
+
+Install Vietnamese pack:
+
+composer require mageplaza/magento-2-vietnamese-language-pack:dev-master mageplaza/module-smtp 
+php bin/magento setup:static-content:deploy vi_VN
+php bin/magento indexer:reindex
+php bin/magento cache:clean
+php bin/magento cache:flush
+
+composer require magefan/module-translation
+php bin/magento setup:upgrade
+php bin/magento setup:di:compile
+php bin/magento setup:static-content:deploy
+
+export
+mysqldump -u YourUser -p YourDatabaseName > wantedsqlfile.sql
+mysqldump --databases --user=root --password your_db_name > export_into_db.sql
+
+.\mysqldump -u root -p dbvagg > dbvagg.sql
+
+import
+mysql -u db_username -p newFileName < databasName.sql
+
+.\mysql -u root -p dbvaggit > dbvagg.sql
+
+.\mysqlimport -u root -p dbvaggit dbvagg.sql
+
+  
+
+To create a new product type with custom fields in Magento 2, you can follow these steps:
+ 
+sihungvo@gmail.com
+create new custom product type with some new fields in magento 2 backend and frontend
+To create a new custom product type with additional fields in Magento 2, you can follow these steps:
+
+Create a new module and enable it in Magento 2. You can do this by creating a registration.php file in your module's root directory with the following code:
+Copy code
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+    'Vendor_Module',
+    __DIR__
+);
+Create a composer.json file in your module's root directory with the following content:
+Copy code
+{
+    "name": "vendor/module",
+    "description": "Magento 2 Custom Product Type",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "~7.1.3|~7.2.0",
+        "magento/framework": "~100.1"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Vendor\\Module\\": ""
+        }
+    }
+}
+Create a module.xml file in your module's etc directory with the following content:
+Copy code
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Vendor_Module" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Catalog"/>
+        </sequence>
+    </module>
+</config>
+Create a new product type by creating etc/product_types.xml
+Copy code
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_types.xsd">
+    <type name="custom_product" label="Custom Product" modelInstance="Vendor\Module\Model\Product\Type\CustomProduct">
+        <customAttributes>
+            <attribute name="custom_field_1" value="Custom Attribute 1" />
+            <attribute name="custom_field_2" value="Custom Attribute 2" />
+        </customAttributes>
+    </type>
+</config>
+Create a Model file Model/Product/Type/CustomProduct.php that implements \Magento\Catalog\Model\Product\Type\AbstractType. This model file will handle your custom product type fields.
+
+Add your custom fields in the form layout files and template files as per your requirement.
+
+Run the setup upgrade command to install the module and update database
+
+Copy code
+bin/magento setup:upgrade
+Clear Cache after
+
+SETUP AND CHANGE SEARCH ENGINE:
+
+https://github.com/swissup/module-search-mysql-legacy
+
+1
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}
+{{depend company}}{{var company}}{{/depend}}
+{{depend telephone}}T: {{var telephone}}{{/depend}}
+{{depend fax}}F: {{var fax}}{{/depend}}
+{{depend vat_id}}VAT: {{var vat_id}}{{/depend}}
+
+2
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}, {{var street}}, {{var city}}, {{var region}} {{var postcode}}, {{var country}}
+
+3
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}{{depend firstname}}<br />{{/depend}}
+{{depend company}}{{var company}}<br />{{/depend}}
+{{if street1}}{{var street1}}<br />{{/if}}
+{{depend street2}}{{var street2}}<br />{{/depend}}
+{{depend street3}}{{var street3}}<br />{{/depend}}
+{{depend street4}}{{var street4}}<br />{{/depend}}
+{{if city}}{{var city}},  {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}<br />
+{{var country}}<br />
+{{depend telephone}}T: <a href="tel:{{var telephone}}">{{var telephone}}</a>{{/depend}}
+{{depend fax}}<br />F: {{var fax}}{{/depend}}
+{{depend vat_id}}<br />VAT: {{var vat_id}}{{/depend}}
+
+
+4.
+{{depend prefix}}{{var prefix}} {{/depend}}{{var firstname}} {{depend middlename}}{{var middlename}} {{/depend}}{{var lastname}}{{depend suffix}} {{var suffix}}{{/depend}}|
+{{depend company}}{{var company}}|{{/depend}}
+{{if street1}}{{var street1}}|{{/if}}
+{{depend street2}}{{var street2}}|{{/depend}}
+{{depend street3}}{{var street3}}|{{/depend}}
+{{depend street4}}{{var street4}}|{{/depend}}
+{{if city}}{{var city}}, {{/if}}{{if region}}{{var region}}, {{/if}}{{if postcode}}{{var postcode}}{{/if}}|
+{{var country}}|
+{{depend telephone}}T: {{var telephone}}|{{/depend}}
+{{depend fax}}F: {{var fax}}|{{/depend}}|
+{{depend vat_id}}VAT: {{var vat_id}}{{/depend}}|

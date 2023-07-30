@@ -1,0 +1,18 @@
+-Khi tạo controller, interface,response mới thì khai báo trong:
+	app/provider/RepositoryServiceProvider
+
+-WhereHas : Muồn where điều kiện của quan hệ (->with), nếu quan hệ thỏa thì mới lấy dùng :
+
+
+-Khi muốn sync lên sf, nếu bị lỗi, xem trong trường "_hc_err" của "table" đó  để biết lỗi
+Thường sẽ là sf sẽ ko cho sync mấy trường đó, cần khai báo mấy trường đó trong Model Sync
+ex :  public $CreateNotUpdate = [
+        "Quantity__c",
+        "DeductionAmount__c",
+        "Oppty_Campus_Merchant_ID__c",
+        "Payment_Code__c",
+        "Deduction_Amount__c",
+        "Actual_Amount__c",
+        "Oppty_Campus_Access_Code__c",
+        "Oppty_Campus_Secure_Hash__c",
+    ];

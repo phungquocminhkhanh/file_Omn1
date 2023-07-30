@@ -1,0 +1,7 @@
+--VAGG ----
+**** SSH / SFTP ****  VAGG
+IP:         222.255.238.105
+Port:       1105
+User:       cxdev_vagg
+Password:   f06qvQL4BT
+
