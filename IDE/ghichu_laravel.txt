@@ -16,3 +16,10 @@ ex :  public $CreateNotUpdate = [
         "Oppty_Campus_Access_Code__c",
         "Oppty_Campus_Secure_Hash__c",
     ];
+
+
+https://laravel.com/api/10.x/classes.html
+
+- chạy db:seed :   php artisan db:seed --class=LangPortalTableSeeder
+
+- path : include(base_path('lang/vi/ied.php'))

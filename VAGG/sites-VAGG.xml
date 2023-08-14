@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileZilla3 version="3.63.2.1" platform="windows">
+	<Servers>
+		<Server>
+			<Host>185.214.133.184</Host>
+			<Port>65002</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>Omn1_VaggFTPAccess</User>
+			<Pass encoding="base64">U1lTWmhwSGoyLmR4Q3FD</Pass>
+			<Logontype>1</Logontype>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>VAGG--PRO</Name>
+			<Comments>Sub-domain: vagg.devsdemo.net
+root:       /home/cxdev/web/vagg.devsdemo.net/public_html
+
+**** SSH / SFTP ****
+IP:         222.255.238.105
+Port:       1105
+User:       cxdev_vagg
+Password:   f06qvQL4BT
+
+**** Database ****
+Link:       http://vagg.devsdemo.net/phpmyadmin | http://222.255.238.105/phpmyadmin
+Database:   cxdev_vagg
+User:       cxdev_vaggu
+Password:   s7Z5ftzi8s
+
+FTP Credentials are:
+
+H: ftp://185.214.133.184
+
+U: Omn1_VaggFTPAccess
+
+P: SYSZhpHj2.dxCqC
+
+
+Description: Config server Production cho VAGG website nhé A!
+
+User: Omn1solution/ Omn1solution@2023
+
+**** Elasticsearch ****
+Port:       9200
+Check cmd:  curl localhost:9200
+
+vagg.devsdemo.net/admin_5113mr admin123
+
+ssh -p 65002 u934343109@185.214.133.184 -i D:\projects\PKI\VSH\.ssh\id_rsa</Comments>
+			<LocalDir>D:\php_projects\web_local\GIT\VAGG\</LocalDir>
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+		<Server>
+			<Host>185.214.133.184</Host>
+			<Port>65002</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>Omn1_VaggFTPAccess</User>
+			<Pass encoding="base64">U1lTWmhwSGoyLmR4Q3FD</Pass>
+			<Logontype>1</Logontype>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>VAGG--PRODUCTION</Name>
+			<Comments>Sub-domain: vagg.devsdemo.net
+root:       /home/cxdev/web/vagg.devsdemo.net/public_html
+
+**** SSH / SFTP ****
+IP:         222.255.238.105
+Port:       1105
+User:       cxdev_vagg
+Password:   f06qvQL4BT
+
+**** Database ****
+Link:       http://vagg.devsdemo.net/phpmyadmin | http://222.255.238.105/phpmyadmin
+Database:   cxdev_vagg
+User:       cxdev_vaggu
+Password:   s7Z5ftzi8s
+
+**** Elasticsearch ****
+Port:       9200
+Check cmd:  curl localhost:9200
+
+vagg.devsdemo.net/admin_5113mr admin1234
+
+Description: Config server Production cho VAGG website nhé A!
+
+185.214.133.184
+U: Omn1_VaggFTPAccess
+
+P: SYSZhpHj2.dxCqC
+
+User: Omn1solution/ technical@omn1solution.com / Omn1solution@2023
+
+**** Elasticsearch ****
+Port:       9200
+Check cmd:  curl localhost:9200
+
+vespaagogo.com/admin_5113mr admin123456
+
+ssh -p 65002 u934343109@185.214.133.184 -i D:\projects\PKI\VSH\.ssh\id_rsa</Comments>
+			<LocalDir>D:\php_projects\web_local\GIT\VAGG\</LocalDir>
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+	</Servers>
+</FileZilla3>

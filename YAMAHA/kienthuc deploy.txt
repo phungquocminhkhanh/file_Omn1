@@ -1,0 +1,2 @@
+Nén file zip theme lại, VD : theme/yamaha
+Thay đổi version trong style.css

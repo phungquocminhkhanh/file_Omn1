@@ -9,18 +9,35 @@ host salesforce dev :
 host salesforce QA
 	https://wass--qa.sandbox.lightning.force.com/lightning/page/home
 	geek@indochinagroup.edu.vn.qa
-	Omn1solution22
+	omn1solution22
+
+host salesforce PRO
+	https://wass.my.salesforce.com/
+	geek@indochinagroup.edu.vn
+	Omn1solutionIED20233
+
+Khánh saleforce:  
+	https://curious-badger-aqj41i-dev-ed.trailblaze.lightning.force.com/
+        khanh.phung@curious-badger-aqj41i.com
+	Password#1305
+
 	
 teacher DEV:          https://dev-ied-teacher-portal-134f549f4b46.herokuapp.com/login
 teacher QA:           https://qa-ied-teacher-portal-081556208b27.herokuapp.com/
 	pass login teacher  hntiennhi1705@gmail.com  	     
 	pass login teacher  hntiennhi1705@gmail.com/ 123456
 
+teacher PRO : https://tps360.wass.edu.vn/class-information/detail/a2RBB0000002MF72AM
+	nhi.huynh@omn1solution.com
+	123456
+
 
 Parent DEV  https://dev-ied-pportal.omnisolutions.vn
 Parent QA   https://stg-ied-pportal.omnisolutions.vn 
 	0377398170
 	123456789
+
+
 
 dashbboard Controller    controler/dashboard
 	sadmin@admin.com
