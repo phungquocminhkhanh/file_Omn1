@@ -3,6 +3,14 @@
 
 -WhereHas : Muồn where điều kiện của quan hệ (->with), nếu quan hệ thỏa thì mới lấy dùng :
 
+lenh tao migtation
+	php artisan make:migration create_add_column_active_fee_item_table --path=database/migrations/salesforce_update
+	
+lệnh refest
+	php artisan migrate:refresh --path=database/migrations/salesforce/2023_05_09_061416_create_menu__c_table.php
+	
+-khi add colum, muon syn data tu saleforse ve thi chay api
+   sf-sync -> object ->object
 
 -Khi muốn sync lên sf, nếu bị lỗi, xem trong trường "_hc_err" của "table" đó  để biết lỗi
 Thường sẽ là sf sẽ ko cho sync mấy trường đó, cần khai báo mấy trường đó trong Model Sync
@@ -23,3 +31,5 @@ https://laravel.com/api/10.x/classes.html
 - chạy db:seed :   php artisan db:seed --class=LangPortalTableSeeder
 
 - path : include(base_path('lang/vi/ied.php'))
+
+

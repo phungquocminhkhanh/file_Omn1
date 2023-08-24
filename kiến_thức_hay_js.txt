@@ -1,0 +1,1 @@
+.prop('outerHTML')   : lấy toàn bộ html và chính nó

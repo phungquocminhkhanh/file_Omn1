@@ -1,0 +1,7 @@
+Trc khi deploy cần lưu ý :
+1. Xem lại và ghi chú list chức cần deploy
+	+Chức năng đó có tạo db mới hay field mới ko   : nếu có chạy upgrade, deploy, di
+	+Có cần img hay j từ media ko
+	+Có install gói thư viện nào mới  :  composer install  (ko dc chạy update)
+	+Cung cấp thông tin connect, admin login, ....
+2. Trên server SSH pro chỉ có lệnh git pull. (ko checkout hay merge j, commlit là éo sửa dc)

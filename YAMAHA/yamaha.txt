@@ -1,5 +1,9 @@
-Domain	ymhrev.omnisolutions.vn	
-		
+Domain DEV	ymhrev.omnisolutions.vn	
+	   PRO	https://www.revzoneyamaha-motor.com.vn/	
+
+
+------DEV-----------------------------
+
 SSH	IP	222.255.238.105
 	Port	1105
 	User	ymhdev
@@ -20,16 +24,33 @@ Database: admin_ymh
 Username: admin_ymhu
 
 Password: @Aa123456@
-
-FTP:
-
-IP: ymh.thuthuat247.com
-
-username: admin_ymh
-
-Password: @Aa123456@
+	
 
 Link website https://ymh.thuthuat247.com
 
 Login info: admin / Password: 4WX3oiT*8)fe6KomV9
 Nhớ khi import database mới thì config lại domain trong tabke : wp_option
+
+
+--PRO-----------------------------------------------------
+
+FTP
+IP: www.revzoneyamaha-motor.com.vn
+Username: admin_revu
+Password: PK5$T4EZZLyRpM -> X@311yFIl2Kpv5K4
+DB:
+IP: 112.213.94.2/phpmyadmin
+Username: admin_revu
+Database: admin_revdb
+Password: yGf$cvJEUP9xfx
+
+Login info: admin / Password: 4WX3oiT*8)fe6KomV9
+
+admin / @Aa123456@
+
+http://aspirine.org/htpasswd_en.html
+
+158 Đường Nguyễn Văn Cừ, P. Bồ Đề, Q. Long Biên, Hà Nội
+
+
+

@@ -1,0 +1,25 @@
+--VAGG DEV----
+**** SSH / SFTP ****  VAGG
+IP:         222.255.238.105
+Port:       1105
+User:       cxdev_vagg
+Password:   f06qvQL4BT
+
+
+
+--VAGG PRO--
+**** SSH / SFTP ****  VAGG
+
+IP: 185.214.133.184
+Port: 65002
+username: u934343109
+password: ^KgZR5T9llwv]Jzf/w7J
+
+
+
+dev@omn1
+AbW60P15F7_56EiMyYKV
+
+
+
+
