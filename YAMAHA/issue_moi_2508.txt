@@ -1,0 +1,3 @@
+is 27 : - Thời gian bài viết bị lẫn lộn
+-> ĐÃ làm   : 
+	wp\wp-content\plugins\commerce-cms\api\Posts_Views.php get_posts_news_know_views_limit

@@ -1,3 +1,5 @@
-technical-wkzt@force.com.dev
-@omni2023
 https://cmctiles--dev.sandbox.my.salesforce.com/
+	technical-wkzt@force.com.dev
+	@omni2023
+	
+hoctap : https://trailhead.salesforce.com/content/learn/trails/force_com_dev_beginner

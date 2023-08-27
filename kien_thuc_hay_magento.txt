@@ -1,0 +1,6 @@
+- Lấy một field nào đó của product mà ko có, thì vào xem có trong attribute env ko.
+	Lấy bằng cách : 
+	Lưu ý : có nhiều model product đã dc custom lại nên ko lấy dc, thì mốc từ dưới magento lên lấy;
+	Ex: $product_repon = $objectManager->get('Magento\Catalog\Api\ProductRepositoryInterface');
+	    $product_repon->getById(Id)
+	    $product_x->getCustomAttribute('description');
