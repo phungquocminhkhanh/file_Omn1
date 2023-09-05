@@ -1,0 +1,21 @@
+-sync object 29/08/2023
+	ClassSession       				pro chua co fieal sync
+	PricebookCGPGTimeSlot         	pro chua co fieal sync
+	Shift                         	pro chua co fieal sync
+	TimeSlot                        pro chua co fieal sync
+	TimeSlotShift                   pro chua co fieal sync
+	
+	ClassSubject    : them column color     
+	Curriculum    : them column price book
+	
+	
+	
+	
+-sync object 05/09/2023
+	ClassC : them column : total_student__c,max_capacity__c,note__c
+	Room   : check xem co field sync chua : exid
+	ClassStudent:  them field mới 
+	Contact : them field mới 
+php artisan migrate --path=database/migrations/salesforce
+php artisan migrate --path=database/migrations/salesforce_update
+
