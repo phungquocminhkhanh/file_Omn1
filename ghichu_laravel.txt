@@ -32,4 +32,6 @@ https://laravel.com/api/10.x/classes.html
 
 - path : include(base_path('lang/vi/ied.php'))
 
+Khi thêm một scss nếu ko sài chung vs nằm trong style thì khai báo vite
+
 

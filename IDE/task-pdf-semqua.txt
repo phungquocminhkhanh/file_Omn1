@@ -1,0 +1,5 @@
+Chay migrate
+tạo field cho 2 table: class_subject__c : campus_group_program_grade_subject__c
+			campus_group__c :  pdf_date__c
+
+Cần chạy lại migrate : salesforce update , sync data

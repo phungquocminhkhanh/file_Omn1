@@ -1,0 +1,9 @@
+node web omn1:
+
+1 bài article
+	- title
+	- cover_img
+	- description
+	- content
+	- metadata
+	

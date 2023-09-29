@@ -1,6 +1,6 @@
 -sync object 29/08/2023
 	ClassSession       				pro chua co fieal sync
-	PricebookCGPGTimeSlot         	pro chua co fieal sync
+	PricebookCGPGTimeSlot         	pro chua co fieal synccover
 	Shift                         	pro chua co fieal sync
 	TimeSlot                        pro chua co fieal sync
 	TimeSlotShift                   pro chua co fieal sync

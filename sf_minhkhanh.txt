@@ -1,0 +1,41 @@
+https://curious-badger-aqj41i-dev-ed.trailblaze.my.salesforce.com/
+khanh.phung@curious-badger-aqj41i.com
+Password#1998
+
+Note
+Khi vào vscode sf : nếu ko thấy ord, có thể dùng lệnh >SFDX : Create Project or 
+ aut login : SFDX: Authorize an Org
+ open : 	SFDX: Open Default Org.
+ 
+Kiến thức :
+-tạo Lightning Web Component
+	- chuot phai : force-app\main\default\lwc : chọn create  Lightning Web Component
+	
+-(Dev Hub)  là gì (chưa hiểu lắm)
+	là tổ chức Salesforce chính mà bạn và nhóm của bạn sử dụng để tạo và quản lý các tổ chức ban đầu của mình.	
+-(Scratch Org) là gì (chưa hiểu lắm)
+-intellisense  là gì : ko biết
+
+
+
+
+----JS------------
+import { LightningElement, api } from 'lwc';
+export default class MyComponent extends LightningElement{
+  @api message;   ??
+  @track message;   ??
+}
+function callback trong js
+	connectedCallback()  -một thành phần được chèn vào DOM
+	disconnectedCallback()  - khi một thành phần bị xóa khỏi DOM.
+	
+----js-meta.xml--------------
++ targets  :	chỉ định loại trang Lightning mà thành phần có thể được thêm vào trong Lightning App Builder.
++ targetConfigs :  cho phép bạn chỉ định hành vi cụ thể cho từng loại trang Lightning, bao gồm những thứ như đối tượng
++ isExposed( truehoặc false) Nếu isExposedlà false, thành phần này không được hiển thị với Lightning App Builder hoặc Experience Builder.
+
+
+-- Cách hiện object mới tạo lên màn hình, có giao diện table
+  Setup ->  Tabs -> new Custom object tabs -> tạo
+	
+	

@@ -1,2 +1,6 @@
 Nén file zip theme lại, VD : theme/yamaha
 Thay đổi version trong style.css
+
+--khi thay đổi code trong scss -> thì chạy lại lệnh sass : sass styles.scss styles.min.css
+Node : file styles.min.css dc sinh ra từ style.scss , import từ module/_.scss , code ko chạy trực tiếp mấy file scss
+mà phải thông qua lệnh sass

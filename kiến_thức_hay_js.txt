@@ -1,1 +1,13 @@
 .prop('outerHTML')   : lấy toàn bộ html và chính nó
+
+-foreach : chạy bất đồng bộ , có thể sập server(nếu code trên backend)  : ko dùng cho async await
+-for : chạy động bộ   , chạy xong cái này mới đến cái vòng sau, ngon cho việc  async await
+
+call một function chổ khác khí then 
+	axios
+        .request(config)
+        .then(getWeeklyReport)
+..
+function getWeeklyReport
+{	
+}

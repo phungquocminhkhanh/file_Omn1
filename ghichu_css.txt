@@ -1,0 +1,16 @@
+
+- đầu-cuối : muốn đưa 2 thẻ div lên đầu và cuối với thằng cha theo chiều dọc thì dùng
+			height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+			
+-CHỮ hoa : text-transform: uppercase;
+
+-th:nth-child(n+2)   >1
+-th:nth-child(-n+3)  >  từ 1 đến 3
+
+- quay chữ :  writing-mode: vertical-rl; 
+bootstraps
+ -mt-1  mt-2  ..   margin top ..
+ 
