@@ -3,3 +3,12 @@
 	https://namlongvn--dev.sandbox.my.salesforce.com
 	hien.tran-jnz7@force.com.dev
 	Omn1Solution#1
+	
+- Salesforce QA 
+	https://namlongvn--qa.sandbox.lightning.force.com
+	hien.tran-jnz7@force.com.qa
+	Omn1Solution#1
+
+- HOST TOOL DEPLOY DEV->QA 	
+https://essentials.copado.com/
+technical@omn1solution.com/O1Success2023@

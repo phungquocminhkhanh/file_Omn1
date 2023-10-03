@@ -1,5 +1,14 @@
 Chay migrate
-tạo field cho 2 table: class_subject__c : campus_group_program_grade_subject__c
-			campus_group__c :  pdf_date__c
-
+tạo field cho table:
+-class_subject__c : campus_group_program_grade_subject__c
+-campus_group__c :  pdf_date__c
+-class_student_mark_detail__c : numerial_order__c
+-mark_schema__c : weight__c
+-subject  : attitude_behaviour_and_effort__c
+Chạy sync : 
+	ClassStudentMarkDetail,
+	ClassSubject,
+	CampusGroup,
+	MarkSchema,
+	Subject
 Cần chạy lại migrate : salesforce update , sync data

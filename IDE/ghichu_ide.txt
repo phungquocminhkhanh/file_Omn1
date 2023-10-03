@@ -16,7 +16,7 @@ host salesforce QA
 host salesforce PRO
 	https://wass.my.salesforce.com/
 	geek@indochinagroup.edu.vn
-	Omn1solutionRT2024
+	Omn1solutionRT2024Omn1solutionRT2024
 
 Khánh saleforce:  
 	https://curious-badger-aqj41i-dev-ed.trailblaze.lightning.force.com/
