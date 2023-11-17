@@ -18,6 +18,20 @@ Kiến thức :
 
 
 
+-Apex Class
+
+  + Map<key,value>
+    lây ra : Map.get(key)
+	
+  + Khai báo 
+	String xxx =  "";
+	Integer  xxx= "" ;
+  
+
+
+
+
+
 ----JS------------
 import { LightningElement, api } from 'lwc';
 export default class MyComponent extends LightningElement{

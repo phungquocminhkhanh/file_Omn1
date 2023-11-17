@@ -1,14 +1,79 @@
-Chay migrate
+Chay migrate sf update,
 tạo field cho table:
 -class_subject__c : campus_group_program_grade_subject__c
 -campus_group__c :  pdf_date__c
 -class_student_mark_detail__c : numerial_order__c
 -mark_schema__c : weight__c
 -subject  : attitude_behaviour_and_effort__c
+- mark_schema__c :  numerial_order__c
+- class_student__c : penn_gpa__c
+- semqua_report__c : end_date__c
+//chay:
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_09_28_043037_create_column__campus__group__program__grade__subject__c_class__subject_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_09_28_043749_create_add_pdf_date_campus_group_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_09_29_102939_create_add_numerial_order__c_mark_detail_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_09_29_104043_create_add_weight__c_mark_schema__c_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_02_064856_create_add__attitude__behaviour__and__effort__c_subject_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_04_075511_create_add_penn_gpa_classstudent_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_04_084239_create_add_numerial_order__c_mark_schema_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce\2023_10_16_083626_create_program__c_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_18_083340_add_column_end_date_semqua_report_table.php
+
+Chay migrate sf 
+- create table : Program__c    : nhớ tạo field exit tren sf
+
 Chạy sync : 
 	ClassStudentMarkDetail,
 	ClassSubject,
 	CampusGroup,
 	MarkSchema,
-	Subject
-Cần chạy lại migrate : salesforce update , sync data
+	Subject,
+	ClassStudent,
+	Program
+	
+Cần chạy lại migrate : sf,salesforce update , sync data
+
+
+Them
+
+day_off__c : local_event__c,url__c
+price book 2
+
+
+
+-- tash assemqua report
+
+chua chay tren pro : 
+
+//chay: php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_13_032727_create_add_course_performance_descriptor__c_weeklyreport_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_13_042429_create_add_weight__c_class_student_mark_detail__c_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_09_29_102939_create_add_numerial_order__c_mark_detail_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_18_075201_add_column_letter_grade_student_mark_detail_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_18_083340_add_column_end_date_semqua_report_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_18_104126_add__is__course__grade__c_class_student_mark_detail_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_19_072851_add_column_opportunity_table.php
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_23_082213_add_is_course_grade__c__mark_schema_table.php
+		
+sync : StudentWeeklyReport : Course_Performance_Descriptor__c
+		ClassStudentMarkDetail : weight__c
+		ClassStudentMarkDetail : letter_grade__c
+		Opportunity : af_submitted__c,student_type__c
+		MarkSchema : numerial_order__c,is_course_grade__c
+		
+		
+Issue 229: Bổ sung điều kiện hiển thị các cột điểm trên Parent		
+		php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_20_065635_add_is_public__c_class_student_mark_sem_qua__c_table.php
+		
+		
+		
+o tren da lam
+
+chua lam:  
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_25_092621_add_is_exam__c_class_student_mark_detail_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_27_043746_add_course_perfomence_descriptor__c_semqua_criteria_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_10_30_091944_add_social_studies__c_subject_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_03_032334_add_number_order__c_subject_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_03_064021_add_field_contact_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_04_104900_add_field__class_student_mark_semqua_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_07_082640_add_field_description_subject_table.php
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_09_150700_add_is_show_mid_criteria_semqua__c_subject_table.php

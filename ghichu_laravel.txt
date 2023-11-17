@@ -1,13 +1,38 @@
--Khi tạo controller, interface,response mới thì khai báo trong:
+-- Khi tạo controller, interface,response mới thì khai báo trong:
 	app/provider/RepositoryServiceProvider
 
--WhereHas : Muồn where điều kiện của quan hệ (->with), nếu quan hệ thỏa thì mới lấy dùng :
+-- WhereHas : Muồn where điều kiện của quan hệ (->with), nếu quan hệ thỏa thì mới lấy dùng :
 
-lenh tao migtation
+-- lenh tao migtation
 	php artisan make:migration create_add_column_active_fee_item_table --path=database/migrations/salesforce_update
 	
-lệnh refest
+-- lệnh refresh
 	php artisan migrate:refresh --path=database/migrations/salesforce/2023_05_09_061416_create_menu__c_table.php
+	
+	
+	
+-- Job hàng đợi  :
+	tạo job : php artisan make:job  Name
+	chạy hàng hợi trên server :  php artisan queue:work
+	cách chạy job đó :  dispatch(new JobsSalesforceSyncTwoWay(có thể bỏ data vào);
+	
+	
+-- chạy lần lượt 200 recort, xong rồi chạy tiếp	
+	$model = $model->chunkById(200, function (Collection $model) {
+            foreach($model as $item){
+                ...
+            }
+		}, $column = 'id'); 
+	
+
+- Tạo lịch, schedule  : 
+	1. Tạo command : php artisan make:command YourCommandName
+			protected $signature = 'command:update_public_weekly_report';    // câu lệnh để chạy coment
+				VD : php artisan command:update_public_weekly_report
+			protected $description = 'Tạo schedule hàng tuần cho Is finish = True và Is Public';
+	2.Tạo schedule : app\Console\Kernel.php
+		VD : $schedule->command('command:update_public_weekly_report')->weekly()->saturdays()->timezone('Asia/Ho_Chi_Minh')->at('11:30');
+	
 	
 -khi add colum, muon syn data tu saleforse ve thi chay api
    sf-sync -> object ->object

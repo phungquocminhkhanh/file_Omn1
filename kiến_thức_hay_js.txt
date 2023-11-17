@@ -11,3 +11,20 @@ call một function chổ khác khí then
 function getWeeklyReport
 {	
 }
+
+
+
+
+- New File từ chuổi base64 : " data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABgAAAAQACAYA....... "
+			function dataURLtoBlob(dataURL) {
+				var binaryString = atob(dataURL.split(',')[1]);
+				var array = [];
+				for (var i = 0; i < binaryString.length; i++) {
+				  array.push(binaryString.charCodeAt(i));
+				}
+				return new Blob([new Uint8Array(array)], { type: 'image/png' });
+			}
+			let imgSrc = "cai chuoi base64" ;
+			let filename = "avatar"+ new Date().getTime(); 
+			var croppedBlob = dataURLtoBlob(imgSrc);
+			var _file_image = new File([croppedBlob],filename,{type: 'image/png'});

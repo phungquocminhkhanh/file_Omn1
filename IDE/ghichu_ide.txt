@@ -16,7 +16,7 @@ host salesforce QA
 host salesforce PRO
 	https://wass.my.salesforce.com/
 	geek@indochinagroup.edu.vn
-	Omn1solutionRT2024Omn1solutionRT2024
+	Omn1solutionRT2024
 
 Khánh saleforce:  
 	https://curious-badger-aqj41i-dev-ed.trailblaze.lightning.force.com/
@@ -29,7 +29,7 @@ teacher QA:           https://qa-ied-teacher-portal-081556208b27.herokuapp.com/
 	pass login teacher  hntiennhi1705@gmail.com
 	pass login teacher  hntiennhi1705@gmail.com 123456
 
-teacher PRO : https://tps360.wass.edu.vn/class-information/detail/a2RBB0000002MF72AM
+teacher PRO : https://tps360.wass.edu.vn
 	nhi.huynh@omn1solution.com
 	123456
 

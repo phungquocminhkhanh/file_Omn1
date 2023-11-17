@@ -4,6 +4,7 @@
             "attributes" : {"type" : "Asset", "referenceId" : "516577"},  // referenceId : cơ động, ko trùng truyền vô
             "ContactId":"0031m00000XFRDmAAP",
             "Name":"Test Create 3",
+			"exid__c" : "d031m000006EMPYBB5",
             "Z_P_00001__c": "text",
             "Z_P_00002__c":"text",
             "Z_P_00003__c": "text",

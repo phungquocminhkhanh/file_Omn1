@@ -1,1 +1,16 @@
 -Muốn xem namespace để khai báo khi install một package :  composer.js : autoload
+
+-Sắp xếp chứ cái :
+
+ Tiếng việt: 
+	usort($response, function($a,$b){
+            	$collator = collator_create('vi_VN');
+            	return collator_compare($collator, $a['class_student']['contact']['name'], $b['class_student']['contact']['name']);
+       	});
+Theo chữ cái TA : 
+	usort($response, function($a,$b){
+           	return strcasecmp($a['name'], $b['name']);
+        });
+		
+		
+=htmlspecialchars(string)  để chuyển chuổi nếu có đặc biệt vào html hoặc ...   <img  data = ""
