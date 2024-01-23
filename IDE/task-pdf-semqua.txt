@@ -77,3 +77,38 @@ php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11
 php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_04_104900_add_field__class_student_mark_semqua_table.php
 php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_07_082640_add_field_description_subject_table.php
 php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_09_150700_add_is_show_mid_criteria_semqua__c_subject_table.php
+
+
+
+
+task -- payment
+
+php artisan migrate:refresh --path=database\migrations\salesforce_update\2023_11_20_085341_add_column_register_payment_case_table.php
+
+
+
+
+
+
+get-fee-item-textbook
+get-fee-item-uniform
+add-optional
+v2/get-payment-detail/
+
+get-after-school-activities
+get-after-school-activities-class
+create-after-school-activities-class-student
+
+
+
+
+
+
+
+
+
+
+
+
+
+

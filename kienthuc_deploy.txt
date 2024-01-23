@@ -1,0 +1,2 @@
+Khi deploy app j đó :  
+đầu từ check DB đã có chưa  , cần thì có thể import DB từ local lên 

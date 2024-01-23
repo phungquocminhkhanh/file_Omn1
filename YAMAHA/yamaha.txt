@@ -25,6 +25,7 @@ Username: admin_ymhu
 
 Password: @Aa123456@
 	
+MYSQL : http://222.255.238.105/phpmyadmin  :  ymhdev_ymhrevu  DJQ4VlBAVK
 
 Link website https://ymh.thuthuat247.com
 
@@ -44,8 +45,8 @@ Username: admin_revu
 Database: admin_revdb
 Password: yGf$cvJEUP9xfx
 
-Login info: admin / Password: 4WX3oiT*8)fe6KomV9
-
+Login info: admin / Password: 4WX3oiT*8)fe6KomK77
+                    pass trên pro : kp&qJ2f*$cW^AUH%
 admin / @Aa123456@
 
 http://aspirine.org/htpasswd_en.html
@@ -55,6 +56,6 @@ http://aspirine.org/htpasswd_en.html
 
 
 link workshop : https://revzoneworkshop.vn/
-Login info: wsadmin / Password: 4WX3oiT*8)fe6KomV9
+Login info: wsadmin / Password: 4WX3oiT*8)fe6KomK77
 
 

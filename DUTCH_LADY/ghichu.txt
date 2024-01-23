@@ -1,0 +1,21 @@
+Host: https://d2dev.omnisolutions.vn
+admin :  https://d2dev.omnisolutions.vn/user/login  admin:Itk123456789@
+IP: 222.255.238.105
+==== SSH ====
+Username: d2dev
+Password: dsMT0RO0GK
+Port: 1105
+==== SFTP ====
+Username: d2dev_fpt
+Password: WbPXJknFpR
+Port: 1105
+==== Database (Mysql 5.5)====
+http://112.213.84.94/phpmyadmin
+Database: admin_d2dev
+User: admin_d2devu
+Password: NvLaOsEso0
+==== Database (Mariadb 10.4)====
+http://222.255.238.105/phpmyadmin
+Database: d2dev_dutchlady
+User: d2dev_dutchladyu
+Password: ZFGzhUA5TS

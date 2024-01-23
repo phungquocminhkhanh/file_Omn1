@@ -1,0 +1,32 @@
+@SalesforceSyncTwoWay::handle - syncPath - @object: Class_Schedule__c   				// da fix : do tren sf pro  thhieu fiedl total_attended_number__c
+@SalesforceSyncTwoWay::handle - syncPath - @object: Log_Portal__c					// da fix	thieu field
+@UpdateQueryBuilder - Object : ScheduleMeeting - Attempt to read property "accountid" on null
+@SalesforceSyncTwoWay::handle - syncPath - @object: Club__c						// da fix	thieu field
+@SalesforceSyncTwoWay::handle - syncDeletePath - @object: Class_Event__c // da fix : do chua co object tren pro
+@SalesforceSyncTwoWay::handle - syncPath - @object: Class_Event__c    // da fix : do chua co object tren pro
+@SalesforceSyncTwoWay::handle - syncPath - @object: Class_Schedule__c
+@SalesforceSyncTwoWay::handle - syncDeletePath - @object: Class_Event__c // da fix : do chua co object tren pro
+@SalesforceSyncTwoWay::handle - syncDeletePath - @object: ASA_Grade__c  // da fix : do chua co object tren pro
+@UpdateQueryBuilder - Attempt to read property "accountid" on null
+@bulkFailedResults Object:Student_Weekly_Report_Criteria__c - [
+    {
+        "errorCode": "NOT_FOUND",
+        "message": "The requested resource does not exist"
+    }
+]
+@bulkFailedResults Object:Class_Student_Mark_Detail__c - [
+    {
+        "errorCode": "NOT_FOUND",
+        "message": "The requested resource does not exist"
+    }
+]
+
+@getTimeTable - [
+    {
+        "message": "\n            WHERE Class__c IN () AND Start_Date__c != NULL  AND\n                              ^\nERROR at Row:6:Column:47\nunexpected token: ')'",
+        "errorCode": "MALFORMED_QUERY"
+    }
+]
+
+@getComentBank2 - Trying to access array offset on value of type null
+App\Repos\Eloquent\ClassStudentRepository::getClassStudentByContactAndClass(): Argument #2 ($class_id) must be of type string, null given, called in /app/app/Http/Controllers/ApiAfterSchoolActivitiesController.php on line 38

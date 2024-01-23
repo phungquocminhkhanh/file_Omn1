@@ -47,6 +47,10 @@ dashb	board Controller    controler/dashboard
 	sadmin@admin.com
 	omn1solution
 
+Pro : https://controller.wass.edu.vn/dashboard/language-portal/3/edit
+     sadmin@admin.com
+     omn1solution
+
 lenh tao migtation
 	php artisan make:migration create_add_column_active_fee_item_table --path=database/migrations/salesforce_update
 lệnh refest

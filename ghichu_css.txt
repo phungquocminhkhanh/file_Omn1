@@ -14,3 +14,13 @@
 bootstraps
  -mt-1  mt-2  ..   margin top ..
  
+ 
+ 
+ 
+Gioi hạn số dòng hiển thị css cho đoạn văn dài
+overflow: hidden;
+    max-height: 3em;
+    -webkit-line-clamp: 2; số dòng
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+ 

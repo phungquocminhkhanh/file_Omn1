@@ -1,4 +1,4 @@
-Trc khi deploy cần lưu ý :
+ Trc khi deploy cần lưu ý :
 1. Xem lại và ghi chú list chức cần deploy
 	+Chức năng đó có tạo db mới hay field mới ko   : nếu có chạy upgrade, deploy, di
 	+Có cần img hay j từ media ko

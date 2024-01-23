@@ -1,6 +1,6 @@
 https://curious-badger-aqj41i-dev-ed.trailblaze.my.salesforce.com/
 khanh.phung@curious-badger-aqj41i.com
-Password#1998
+Password#1305
 
 Note
 Khi vào vscode sf : nếu ko thấy ord, có thể dùng lệnh >SFDX : Create Project or 

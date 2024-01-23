@@ -1,14 +1,49 @@
 
 - Saleforce DEV
 	https://namlongvn--dev.sandbox.my.salesforce.com
-	hien.tran-jnz7@force.com.dev
-	Omn1Solution#1
+		hien.tran-jnz7@force.com.dev
+		Omn1Solution#12
 	
-- Salesforce QA 
-	https://namlongvn--qa.sandbox.lightning.force.com
-	hien.tran-jnz7@force.com.qa
-	Omn1Solution#1
+- Salesforce uat
+	https://namlongvn--uat.sandbox.lightning.force.com
+		hien.tran-jnz7@force.com.uat
+		Omn1DCX#1
+
+
 
 - HOST TOOL DEPLOY DEV->QA 	
 https://essentials.copado.com/
 technical@omn1solution.com/O1Success2023@
+
+- Web portal : 
+	DEV : 	https://namlongvn--dev.sandbox.my.site.com/demo  
+				phong.nguyen@omn1solution.com
+				omn1solution.com
+
+	UAT : 	https://namlongvn--uat.sandbox.my.site.com/demo  
+				phongnguyen@omn1solution.com
+				omn1solution
+
+
+DevLog__c
+Lead
+DevLog__c
+Zalo_OA__c
+Contact
+SendZalo__c
+Zalo_File__c
+Zalo_User__c
+List_Of_Row__c
+Zalo_Config__c
+SMS_History__c
+Template_Zalo__c
+Zalo_Session__c
+Message_Button__c
+Zalo_Chat_Event__e
+Zalo_Message_Log__c
+CampaignMember
+Opened_Message__c
+Zalo_User_Communities__c
+Template_Token_Zalo__c
+SendZalo__c
+MC_Callout_Setting__mdt

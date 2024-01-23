@@ -1,0 +1,2 @@
+composer require drupal/core-recommended:9.3.22 drupal/core-composer-scaffold:9.3.22 drupal/core-project-message:9.3.22 --update-with-all-dependencies
+
