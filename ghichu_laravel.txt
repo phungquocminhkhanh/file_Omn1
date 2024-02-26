@@ -37,19 +37,6 @@
 -khi add colum, muon syn data tu saleforse ve thi chay api
    sf-sync -> object ->object
 
--Khi muốn sync lên sf, nếu bị lỗi, xem trong trường "_hc_err" của "table" đó  để biết lỗi
-Thường sẽ là sf sẽ ko cho sync mấy trường đó, cần khai báo mấy trường đó trong Model Sync
-ex :  public $CreateNotUpdate = [
-        "Quantity__c",
-        "DeductionAmount__c",
-        "Oppty_Campus_Merchant_ID__c",
-        "Payment_Code__c",
-        "Deduction_Amount__c",
-        "Actual_Amount__c",
-        "Oppty_Campus_Access_Code__c",
-        "Oppty_Campus_Secure_Hash__c",
-    ];
-
 
 https://laravel.com/api/10.x/classes.html
 
@@ -58,5 +45,38 @@ https://laravel.com/api/10.x/classes.html
 - path : include(base_path('lang/vi/ied.php'))
 
 Khi thêm một scss nếu ko sài chung vs nằm trong style thì khai báo vite
+
+ 
+-- code drop, create 1 index;
+	$schemaName = 'salesforce';
+        $lsttables = Schema::getConnection()->getDoctrineSchemaManager()->listTableNames($schemaName);
+       
+        foreach ($lsttables as $tableName) {
+            if (Schema::hasColumn($schemaName . '.' . $tableName, 'exid__c')) {
+                Schema::table($tableName, function(Blueprint $table) use ($tableName){
+                    $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                    $indexesFound = $sm->listTableIndexes($tableName);
+                    
+
+                    // //drop
+                    // $exid_index = $tableName."_exid__c_index";
+                    // if(array_key_exists($exid_index, $indexesFound))
+                    // {
+                       
+                    //     echo 'DROP INDEX salesforce.'.$exid_index."\n";
+                    //     DB::statement('DROP INDEX salesforce.'.$exid_index);  
+                    // }
+
+
+                    //create
+                    $exid_index = $tableName."_exid__c_unique";
+                    if(!array_key_exists($exid_index, $indexesFound))
+                    {
+                        echo 'Add unique : '.$tableName."\n";
+                        $table->unique('exid__c');
+                    }
+                });
+            }
+        }
 
 

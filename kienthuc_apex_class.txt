@@ -1,0 +1,9 @@
+Tạo mảng Map<String,Object> mapParam = new Map<String,Object>();
+tạo một danh sách mảng List<Map<String, Object>> userDataList = new List<Map<String, Object>>();
+
+SQL : 
+Khi lấy quan hệ :
+	. Field custom : thì có __r   : 
+		EX : Opportunity ( lấy field Api trong quan hệ)  :   Outlet__r.Id,Outlet__r.Name 
+	. Field Standard  : thì ko   : 
+		EX : Opportunity  ( lấy tê object quan hệ) :  Account.Id,Account.Name 				

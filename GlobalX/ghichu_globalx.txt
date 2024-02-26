@@ -2,3 +2,12 @@ SF GlobalX Dev
 Dev:
 Username: hung.le-57ml@force.com.dev
 Password: Omn1Solution
+
+QA : 
+hung.le-57ml@force.com.qa
+Password: Omn1Solution
+
+
+PROD
+hung.le-57ml@force.com
+Omn1Solution
