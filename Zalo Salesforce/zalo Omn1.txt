@@ -1,0 +1,37 @@
+Khi deploy lên pro nhớ bât channel Omn1
+
+0931114662
+Omn1@123456
+
+
+
+SF
+chạy schedule refresh token : SchedulerRefreshZaloToken.startScheduler();
+get token zalo : Database.executeBatch(new BatchRefreshZaloToken(), 1);
+
+
+- Sync data zalo về -> form data
+     Zalo_Form__c zalo = [Select Id,Form_Id__c,Zalo_OA__r.App_Id__c from Zalo_Form__c where Id='a0V0T000004rvhgUAA'];
+     System.enqueueJob(new ZaloAdsForm.GetAdsData(zalo.Form_Id__c,0,zalo.Zalo_OA__r.App_Id__c,'')); 
+
+	Database.executeBatch(new BatchZaloAdsForm(), 1);
+
+
+
+
+
+
+- Mapping data qua Lead
+     Zalo_Form__c zalo = [Select Id,Form_Id__c,Zalo_OA__r.App_Id__c from Zalo_Form__c where Id='a0V0T000004rvhgUAA'];
+     SyncZaloFormToLead.mappingFormToLead(zalo);
+
+ - Chạy schedule
+      System.schedule('ScheduleZaloAdsForm Job 4', '0 4 * * * ?', new ScheduleZaloAdsForm());
+
+
+Zalo_Form_Data__c[] doomedAccts = [SELECT Id, Name FROM Zalo_Form_Data__c ]; 
+try {
+    delete doomedAccts;
+} catch (DmlException e) {
+    // Process exception here
+}

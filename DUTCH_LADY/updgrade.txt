@@ -4,3 +4,11 @@ composer require drupal/core-recommended:10.2.0 drupal/core-composer-scaffold:10
 
 composer require drupal/core-recommended:9.4.4 drupal/core-composer-scaffold:9.4.4 drupal/core-project-message:9.4.4 --update-with-all-dependencies
 
+
+composer require drupal/core-recommended:9.5.11 drupal/core-composer-scaffold:9.5.11 drupal/core-project-message:9.5.11 --update-with-all-dependencies
+
+
+
+trong setting  : bat update_free_access  = true de update
+
+site/update.php  de update

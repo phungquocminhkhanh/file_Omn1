@@ -1,0 +1,361 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes"
+                access="global" 
+                controller="rpBiWeeklyTLAController">
+    <ltng:require scripts="{!join(',', 
+                           $Resource.jQuery3,
+                           $Resource.jQuery_UI)}" />
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/> 
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>     
+    <aura:attribute name="recordId" type="Id" />    
+    <aura:attribute name="Adddisable" type="Boolean" default="false" />
+    
+    <aura:attribute name="lstSource" type="sObject"/>    
+    <aura:attribute name="objSource" type="sObject"/>
+    <aura:attribute name="objSourceFooter" type="sObject"/>
+    
+    <aura:attribute name="captureFrom" type="date" />
+    <aura:attribute name="captureTo" type="date" />
+    <aura:attribute name="lkSchoolYear" type="sObject"  default="{}"/>   
+    <aura:attribute name="lkCampus" type="sObject"  default="{}"/> 
+    
+    <ltng:require scripts="{!$Resource.xlsxPopulate}" />
+    <aura:attribute name="downloadLink" type="String" default=""/>
+    <aura:attribute name="downloadName" type="String" default=""/>
+    
+    <aura:html tag="style">
+        .slds-p-around–medium {
+        padding: 0rem !important;
+        }
+        .slds-modal__container {
+        min-width: 60vw;
+        
+        height:unset !important;
+        max-height:unset !important;
+        }
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .table, th, td{
+        text-align: center;
+        }
+    </aura:html>   
+    
+    
+    <div class="modal-header slds-modal__header" >
+        <h2 class="title slds-text-heading--medium" >ADMISSIONS REPORT - TEAM LEADERs BI-WEEKLY MEETING</h2>
+    </div>
+    
+   
+    
+    <div class="row" >
+        <a href="{! v.downloadLink }" aura:id="downloadLink" download="{! v.downloadName }"></a>
+        <div style="margin-top:5px;"><h1><b>Filter Condition</b></h1></div>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-12"  style="margin-right:10px;">
+                <lightning:input type="Date" name="inputCaptureFrom" label="Capture Date From" value="{! v.captureFrom}" />
+            </div>
+            <div class="slds-col slds-size_1-of-12" style="margin-right:10px;">
+                <lightning:input type="Date" name="inputCaptureTo" label="Capture Date To" value="{! v.captureTo}"   />
+            </div>
+            
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2" style="margin-right:5px;">
+                    <c:customLookUp2 objectAPIName="Pricebook2" 												
+                                     fieldName="Name"
+                                     IconName="standard:account" 
+                                     label="School Year"            
+                                     aura:id="compSchoolYear"    
+                                     Width="200"
+                                     selectedRecord="{!v.lkSchoolYear}"/>            
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-6" >
+                    <c:customLookUp2 objectAPIName="Campus__c" 												
+                                     fieldName="Name"
+                                     IconName="standard:account" 
+                                     label="Campus"            
+                                     aura:id="compCampus"         
+                                     Width="200"
+                                     selectedRecord="{!v.lkCampus}"/>            
+                </div>
+            </div>
+            
+            <div class="slds-col slds-size_1-of-12" style="margin-left:30px; margin-top: 25px; width: 255px;">
+                <lightning:button variant="brand" label="Apply Filter" title="Apply Filter" onclick="{! c.btnApplyFilter }" disabled="{!v.Adddisable}"/>
+                <lightning:button variant="brand" label="Export Excel" title="Export Excel" onclick="{! c.btnExport }"/>
+            </div>
+        </div>                 
+    </div>
+    
+    <div class="row" style="padding-bottom: 30px;">   
+        <div style="margin-top:5px;margin-bottom:5px;"><b>I. Summary</b></div>   
+        <!--  <lightning:input  type="text" name="inputFilter" label="Filter" value="{! v.filterText}" />-->
+        
+        
+        <!--<h1>Selected Rows: {! v.selectedRowsCount }</h1>-->
+        <lightning:card>        
+            <table id="table1" style='position:relative;' class="slds-table  slds-table_bordered "> <!-- slds-table_col-bordered slds-table_cell-buffer border: 1px solid black-->
+                <thead>
+                    <tr >
+                        <th class="" scope="col"  rowspan = "3">
+                            <div class="slds-truncate" title="" >Campus</div>
+                        </th>                    
+                        <th class="" scope="col" rowspan = "3">
+                            <div class="slds-truncate" title="">Grade</div>
+                        </th>
+                        <th class="" scope="col" rowspan = "3">
+                            <div class="slds-truncate" title="">TOTAL<br/> CURRENT<br/> NUMBER OF<br/> STUDENT</div>
+                        </th>    
+                        <th class="" scope="col" colspan = "2" rowspan = "2">
+                            <div class="slds-truncate" title="">TARGET 23-24</div>
+                        </th>
+                        <th class="" scope="col" colspan = "2" rowspan = "2">
+                            <div class="slds-truncate" title="">No of Qualified<br/> Inquiries SY2324 &amp;<br/> compared to YTD <br/>number of SY2223</div>
+                        </th>
+                        <th class="" scope="col" colspan = "4" >
+                            <div class="slds-truncate" title="">Number of taking P.Tests SY 2324 &amp; <br/>compared to YTD number of  SY2223</div>
+                        </th>
+                        <th class="" scope="col" colspan = "6">
+                            <div class="slds-truncate" title="">Number of New students SY2324 &amp; <br/>compared to YTD number of SY2223</div>
+                        </th>
+                        <th class="" scope="col" colspan = "4">
+                            <div class="slds-truncate" title="">Summer 2023 &amp; compared to YTD<br/> number of SY22-23</div>
+                        </th>
+                        <th class="" scope="col" colspan = "6">
+                            <div class="slds-truncate" title="">OUT students &amp; compared  to YTD number of <br/>SY22-23</div>
+                        </th>                    
+                    </tr>
+                    
+                    <tr>
+                        
+                        <th class="" scope="col" colspan = "2">
+                            <div class="slds-truncate" title="">Total Test</div>
+                        </th>                    
+                        <th class="" scope="col" colspan = "2">
+                            <div class="slds-truncate" title="">Passed test</div>
+                        </th>
+                        
+                        
+                        <th class="" scope="col" colspan = "2">
+                            <div class="slds-truncate" title="">Paid Deposit (seminars/sibling/<br/>thank you/ scholarship) (1)</div>
+                        </th>  
+                        <th class="" scope="col"  colspan = "2">
+                            <div class="slds-truncate" title="">Paid tuition fee (2)</div>
+                        </th>
+                        <th class="" scope="col" colspan = "2">
+                            <div class="slds-truncate" title="">Total = (1) + (2)</div>
+                        </th>
+                        
+                        
+                        <th class="" scope="col" colspan="2">
+                            <div class="slds-truncate" title="">Current Student -<br/> Summer</div>
+                        </th>
+                        <th class="" scope="col" colspan="2">
+                            <div class="slds-truncate" title="">New students -<br/> summer</div>
+                        </th>
+                        
+                        <th class="" scope="col" colspan="2">
+                            <div class="slds-truncate" title="">Withdrew</div>
+                        </th>
+                        <th class="" scope="col" colspan="2">
+                            <div class="slds-truncate" title="">Intend to leave</div>
+                        </th>  
+                        <th class="" scope="col" colspan="2">
+                            <div class="slds-truncate" title="">Total Withdrew <br/>+ Intend to leave</div>
+                        </th>
+                    </tr>
+                    
+                    <tr>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">IN</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">OUT</div>
+                        </th> 
+                        
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.SchoolYearName}</div>
+                        </th>
+                        <th class="" scope="col" >
+                            <div class="slds-truncate" title="">{! v.objSource.NextSchoolYearName}</div>
+                        </th> 
+                        
+                    </tr>
+                    
+                </thead>
+                
+                <tbody>
+                    <aura:iteration items="{! v.lstSource }" var="objFull" indexVar="idxFull">         
+                        <aura:iteration items="{! objFull.lstRow }" var="objRow" indexVar="idxRow">      
+                            <tr >
+                                <aura:if isTrue="{! idxRow == 0}">
+                                    <td rowspan = "{! objFull.RowSpan}">{! objFull.objCampus.Name}</td>                 
+                                </aura:if>                                 
+                                
+                                <td style = "text-align: left;"><span style="text-align:left">{! objRow.objGrade.Name }</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{! objRow.TotalLeadQualified }</td>
+                                <td></td>
+                                <td>{! objRow.TotalCandidateApplicant }</td>
+                                <td></td>
+                                <td>{! objRow.TotalCandidateOffered}</td>
+                                <td></td>
+                                <td>{! objRow.TotalCandidatePaidDeposit}</td>
+                                <td></td>
+                                <td>{! objRow.TotalCandidate1stTermPaidTuition}</td>
+                                <td></td>
+                                <td>{! objRow.Total}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                        </aura:iteration>  
+                        <tr style="background-color: darkgray;">                                
+                                <td colspan = "2" >{! 'Total [' + objFull.objCampus.Name + ']'}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{! objFull.TotalLeadQualified }</td>
+                                <td></td>
+                                <td>{! objFull.TotalCandidateApplicant }</td>
+                                <td></td>
+                                <td>{! objFull.TotalCandidateOffered}</td>
+                                <td></td>
+                                <td>{! objFull.TotalCandidatePaidDeposit}</td>
+                                <td></td>
+                                <td>{! objFull.TotalCandidate1stTermPaidTuition}</td>
+                                <td></td>
+                                <td>{! objFull.Total}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                    </aura:iteration>
+                </tbody>
+                
+                
+                
+                
+                <tfoot>
+                    <tr style='background-color: #c5e0b3; text-align: center; padding: 15px;'>
+                        <td style = 'padding: 5px; color: red' colspan = "2">Total All VAS</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.TotalLeadQualified}</td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.TotalCandidateApplicant}</td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.TotalCandidateOffered}</td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.TotalCandidatePaidDeposit}</td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.TotalCandidate1stTermPaidTuition}</td>
+                        <td></td>
+                        <td>{! v.objSourceFooter.Total}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                        
+                    </tr>
+                </tfoot> 
+                
+                
+            </table>           
+        </lightning:card>
+    </div>
+    
+    
+</aura:component>

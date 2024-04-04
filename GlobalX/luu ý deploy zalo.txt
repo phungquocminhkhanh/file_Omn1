@@ -1,0 +1,2 @@
+Xem Object ZaloOA vs tạo : OA ID và Zalo User Id  trùng nhau không
+Bên Zaloconfig Omn1 Zalo demo@secret_key  : nên thay đổi lại vì chưa có code update khi update bên OA

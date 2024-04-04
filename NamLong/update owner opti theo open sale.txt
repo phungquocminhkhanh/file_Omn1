@@ -1,0 +1,25 @@
+// update class nay
+// TriggerOpportunity
+// TriggerHandlerOpportunity
+
+list<Opening_Sales__c> lstopen =  [SELECT Id,OwnerId FROM Opening_Sales__c];
+Map<string,Opening_Sales__c> mapopen = new Map<string,Opening_Sales__c>();
+
+for(Opening_Sales__c open : lstopen){
+    mapopen.put(open.Id,open);
+}
+
+
+list<Opportunity> lstupdate = [SELECT Id,Opening_Sales__c,OwnerId,House_Unit__c,VAT__c,PhiBaoTri__c,TongGiaTriCH__c,TongGiaTriHD__c FROM Opportunity WHERE Opening_Sales__c != null];
+
+for(Opportunity op : lstupdate){
+    if (mapopen.containsKey(op.Opening_Sales__c)) {
+    	Opening_Sales__c opensale = mapopen.get(op.Opening_Sales__c);  
+    	op.OwnerId = opensale.OwnerId;
+        
+    }
+}
+
+if(lstupdate.size() > 0){
+    update lstupdate;
+}

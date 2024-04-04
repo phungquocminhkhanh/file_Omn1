@@ -2,18 +2,18 @@
 - Saleforce DEV
 	https://namlongvn--dev.sandbox.my.salesforce.com
 		hien.tran-jnz7@force.com.dev
-		Omn1Solution#12
+		Omn1Solution#13
 	
 - Salesforce uat
 	https://namlongvn--uat.sandbox.lightning.force.com
 		hien.tran-jnz7@force.com.uat
-		Omn1DCX#1
+		Omn1DCX#4
 
 
 
 - HOST TOOL DEPLOY DEV->QA 	
 https://essentials.copado.com/
-technical@omn1solution.com/O1Success2023@
+technical@omn1solution.com/O1Success2024@
 
 - Web portal : 
 	DEV : 	https://namlongvn--dev.sandbox.my.site.com/demo  
