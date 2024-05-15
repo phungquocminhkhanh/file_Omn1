@@ -1,0 +1,9 @@
+all config:
+config\vtc.php
+sau khi truy cap ssh thi chay lenh:
+php artisan tinker
+//update pass "api_password" -> thay = pass moi
+DB::table('omn1_configs')->where('key', 'webConnectPROD')->update(['value' => '{"api_user":"tunghv@vtc.edu.vn","api_password":"VTCA@SJywOJ6&99#20242pkX9H0Kv6WswF5qj2ea6fMZr","client_id":"3MVG9HB6vm3GZZR.8CgxoWj0nse_0vheD7kWZQAz1zwPFBykMumwDnOhcXE.2SPWOA70GSSPy9fS0cSXue3Zy","client_secret":"D41CD62F6A3B02E167448AAA47C1FCF8675B5BB8E803AF72FE1B5AE080F64161","is_sandbox":"0","refresh_token":""}']);
+
+
+DB::table('omn1_configs')->where('key', 'webConnectPROD')->update(['value' => '{"api_user":"tunghv@vtc.edu.vn","api_password":"SjkyUPw6%187P3QURAxmmWxyTJ31KlS7PaP5","client_id":"3MVG9HB6vm3GZZR.8CgxoWj0nse_0vheD7kWZQAz1zwPFBykMumwDnOhcXE.2SPWOA70GSSPy9fS0cSXue3Zy","client_secret":"D41CD62F6A3B02E167448AAA47C1FCF8675B5BB8E803AF72FE1B5AE080F64161","is_sandbox":"0","refresh_token":""}']);

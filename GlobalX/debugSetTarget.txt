@@ -1,0 +1,8 @@
+string Idc = '0010T00000hGsKNQA0';  //BU F&B
+string targetId = 'a0X0T00000CXHFgUAP'; 
+string targetApplyId = 'a0Y0T000002oaZLUAY'; 
+string targetPositionId = 'a0Z0T000002YOsVUAW'; 
+string targetPeriodId = 'a0d0T000001j8EfQAI'; 
+string targetApplyObject = 'BU'; 
+string userId = '0050T0000047XMuQAM'; 
+LibrariesSetTargetKPITree.setTarget();

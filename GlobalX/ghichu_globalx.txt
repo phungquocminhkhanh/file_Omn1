@@ -11,3 +11,15 @@ Password: Omn1Solution
 PROD
 hung.le-57ml@force.com
 Omn1Solution
+
+
+postman : 	username: globalx45@gmail.com
+		pass: Globalx@123
+
+ladingpage : binhanmkt@gmail.com Marrketing@633638
+
+
+
+
+
+
