@@ -1,8 +1,36 @@
-string Idc = '0010T00000hGsKNQA0';  //BU F&B
-string targetId = 'a0X0T00000CXHFgUAP'; 
-string targetApplyId = 'a0Y0T000002oaZLUAY'; 
-string targetPositionId = 'a0Z0T000002YOsVUAW'; 
-string targetPeriodId = 'a0d0T000001j8EfQAI'; 
-string targetApplyObject = 'BU'; 
-string userId = '0050T0000047XMuQAM'; 
-LibrariesSetTargetKPITree.setTarget();
+string Ids = '0030T00000WZDIzQAP';
+Decimal targetPlan = 12345678;
+string targetId = 'a0m0T0000089q0cQAA';
+string targetApplyId = 'a0m0T0000089zstQAA';
+string targetPeriodId = 'a0m0T0000089pvlQAA';
+string targetApplyObject = 'OUTLET';
+string userId = null;
+string parent = NULL;
+string contactId = '0030T00000WZCgOQAX';
+string setting = '';
+//KPITreeViewController.getListOutlet(Ids,targetApplyId,targetPeriodId);
+//KPITreeViewController.getListBU(Ids,targetApplyId,targetPeriodId);
+//KPITreeViewController.editTarget(Ids, targetPlan,targetApplyId,targetPeriodId, targetApplyObject, userId, parent,contactId);
+//KPITreeViewController.getListBU(Ids,targetApplyId,targetPeriodId);
+//KPITreeViewController.getListStaffOutlet(Ids,targetId,targetPeriodId);
+
+KPI__c[] doomedAccts = [SELECT Id, Name FROM KPI__c 
+                       WHERE Recordtype.developername='Target_Apply_Position_User'
+                       OR Recordtype.developername='Position_User'
+                       OR Recordtype.developername='Period_Target_Apply_Position_User'
+                      ]; 
+delete doomedAccts;
+
+
+string searchKeyWord='';
+string ObjectName='User';
+string objectAPIRecordType=null;
+string filterField= 'Name';
+string filter= '';
+string objectParentAPIName= null;
+string objectParentRelativeField= null;
+string objectParentRelativeValue= null;
+string jsonFilter = '[{"typeWhere":"OR","dataWhere":[{"Name":"ManagerId","Condition":"=","Value":"0050T0000047Vp1QAE"}]}]';
+customLookUpController2.fetchLookUpValues(searchKeyWord,ObjectName,objectAPIRecordType,filterField,filter,objectParentAPIName,objectParentRelativeField,objectParentRelativeValue,jsonFilter);
+
+

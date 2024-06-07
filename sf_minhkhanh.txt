@@ -2,6 +2,14 @@ https://curious-badger-aqj41i-dev-ed.trailblaze.my.salesforce.com/
 khanh.phung@curious-badger-aqj41i.com
 Password#1305
 
+ord 2 : 
+https://minhkhanh-dev-ed.develop.lightning.force.com/
+username : khanhphung@omn1.sandbox  Password#1998
+Postal Code* : 130598
+Company : Minh Khanh
+Ho Chi Minh
+
+
 Note
 Khi vào vscode sf : nếu ko thấy ord, có thể dùng lệnh >SFDX : Create Project or 
  aut login : SFDX: Authorize an Org
@@ -18,14 +26,7 @@ Kiến thức :
 
 
 
--Apex Class
 
-  + Map<key,value>
-    lây ra : Map.get(key)
-	
-  + Khai báo 
-	String xxx =  "";
-	Integer  xxx= "" ;
   
 
 
